@@ -48,7 +48,7 @@
     CGFloat kYLine = rect.size.height - _settings.indentBottomLine; // Самая нижняя точка
     CGFloat W = rect.size.width; // Общая ширина контента
     CGFloat kHmax = kYLine - _settings.indent - _settings.sizeMiniLine.height - _settings.indentTopLine; // Максимальный размер отведенный под столбик
-    
+
     // Корректируем ширину черкаша и столбика
     CGFloat maxMiniline = W / ((CGFloat) _settings.numberColums + 1 );
     if (_settings.sizeMiniLine.width >= maxMiniline) {

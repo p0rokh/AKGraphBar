@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9532"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AKDemoController">
             <connections>
+                <outlet property="graphImageView" destination="G5k-fj-6eC" id="IFR-uk-NIl"/>
                 <outlet property="view" destination="oNm-t4-P8M" id="8uJ-Eu-pad"/>
             </connections>
         </placeholder>
@@ -16,17 +17,40 @@
             <rect key="frame" x="0.0" y="0.0" width="577" height="384"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYt-wA-oEm">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEg-8W-Gzk" customClass="AKView">
                     <rect key="frame" x="30" y="50" width="517" height="128"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G5k-fj-6eC">
+                            <rect key="frame" x="8" y="8" width="501" height="112"/>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="G5k-fj-6eC" secondAttribute="bottom" constant="8" id="B49-eZ-pq7"/>
+                        <constraint firstItem="G5k-fj-6eC" firstAttribute="leading" secondItem="KEg-8W-Gzk" secondAttribute="leading" constant="8" id="SOf-sC-bX0"/>
+                        <constraint firstItem="G5k-fj-6eC" firstAttribute="top" secondItem="KEg-8W-Gzk" secondAttribute="top" constant="8" id="cAJ-G6-GL4"/>
+                        <constraint firstAttribute="trailing" secondItem="G5k-fj-6eC" secondAttribute="trailing" constant="8" id="eHb-vp-yk3"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                            <color key="value" red="0.99607843139999996" green="0.90980392160000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="thickness">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="NYt-wA-oEm" firstAttribute="leading" secondItem="oNm-t4-P8M" secondAttribute="leading" constant="30" id="1pD-4D-dMk"/>
-                <constraint firstAttribute="trailing" secondItem="NYt-wA-oEm" secondAttribute="trailing" constant="30" id="Xfb-Ys-MGB"/>
-                <constraint firstItem="NYt-wA-oEm" firstAttribute="height" secondItem="oNm-t4-P8M" secondAttribute="height" multiplier="1:3" id="fjU-Nx-TbD"/>
-                <constraint firstItem="NYt-wA-oEm" firstAttribute="top" secondItem="oNm-t4-P8M" secondAttribute="top" constant="50" id="seR-LJ-Cq2"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KEg-8W-Gzk" secondAttribute="bottom" constant="50" id="Bxf-Yh-YoQ"/>
+                <constraint firstItem="KEg-8W-Gzk" firstAttribute="leading" secondItem="oNm-t4-P8M" secondAttribute="leading" constant="30" id="Y1N-rQ-1pv"/>
+                <constraint firstItem="KEg-8W-Gzk" firstAttribute="height" secondItem="oNm-t4-P8M" secondAttribute="height" multiplier="1:3" priority="999" id="kYv-7j-s7C"/>
+                <constraint firstAttribute="trailing" secondItem="KEg-8W-Gzk" secondAttribute="trailing" constant="30" id="ppG-x4-IsB"/>
+                <constraint firstItem="KEg-8W-Gzk" firstAttribute="top" secondItem="oNm-t4-P8M" secondAttribute="top" constant="50" id="uv0-l4-Zhh"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="553.5" y="234"/>

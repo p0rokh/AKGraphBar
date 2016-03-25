@@ -1,5 +1,5 @@
 //
-//  AKDemoController.h
+//  AKImageView.h
 //  AKGraphBar
 //
 //  Created by Anton Korolev on 25.03.16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AKDemoController : UIViewController
-
-@property (weak, nonatomic) IBOutlet UIImageView *graphImageView;
+@interface AKView : UIView
 
 @end

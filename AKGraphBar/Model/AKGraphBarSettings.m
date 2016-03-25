@@ -8,9 +8,9 @@
 
 #import "AKGraphBarSettings.h"
 
-#define kDefaultColumsNumber 12
+#define kDefaultColumsNumber 22
 #define kDefaultIndentLine 10.0f
-#define kDefaultIndent 2.0f
+#define kDefaultIndent 4.0f
 #define kDefaulWightMiniLine 48.0f
 #define kDefaultHeightColum 300
 
