@@ -16,6 +16,7 @@
 
 @interface AKGraphBarSettings ()
 
+/* Private metods */
 - (void) setup:(NSInteger) numberColums andArrayData:(NSArray *) array;
 - (CGFloat) getMAXHeightInArrayData:(NSArray *)array ;
 
@@ -28,7 +29,6 @@
 -(id)initDefaultWithArrayData:(NSArray *)arrayData {
     return [self initDefaultWithArrayData:arrayData andNumberColums:0];
 }
-
 -(id)initDefaultWithArrayData:(NSArray *)arrayData andNumberColums:(NSInteger)numberColums {
     self = [super init];
     if (self) {

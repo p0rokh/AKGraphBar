@@ -13,8 +13,10 @@
 
 @property (strong, nonatomic) AKGraphBarSettings* settings;
 
+/* init method */
 -(id) initWhithSetting:(AKGraphBarSettings *) settings;
 
+/* Returns schedule */
 -(UIImage *) drawGraphBarInRect:(CGRect) rect;
 
 @end

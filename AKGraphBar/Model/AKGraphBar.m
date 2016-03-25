@@ -10,7 +10,10 @@
 
 @interface AKGraphBar ()
 
+/* Obtain the correct rect for the pillars */
 - (CGRect) columRectAtPoint: (CGPoint) point andHeight: (CGFloat) height;
+
+/* Get the correct rect for dashes */
 - (CGRect) miniRectAtPoint:(CGPoint) point;
 
 @end
@@ -28,6 +31,8 @@
     return self;
 }
 
+#pragma mark - Draw graph bar
+
 - (UIImage *)drawGraphBarInRect:(CGRect)rect {
     if (_settings == nil) {
         return nil;
@@ -35,21 +40,21 @@
     
     UIGraphicsBeginImageContext(rect.size);
     
-    // Первым делом узнаем максимальное значение в массиве
+    // First we learn the maximum value in the array
     CGFloat Hmax = _settings.maxHeightColum;
     
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     
-    // Созданим цвет нашего полотна и закрасим его.
+    // Creating color our canvas and paint over it.
     CGContextSetFillColorWithColor(ctx, [_settings.background CGColor]);
     CGContextFillRect(ctx, rect);
     
-    // Дефолтные настройки
+    // Default settings
     CGFloat kYLine = rect.size.height - _settings.indentBottomLine; // Самая нижняя точка
     CGFloat W = rect.size.width; // Общая ширина контента
     CGFloat kHmax = kYLine - _settings.indent - _settings.sizeMiniLine.height - _settings.indentTopLine; // Максимальный размер отведенный под столбик
 
-    // Корректируем ширину черкаша и столбика
+    // Adjust the width of the column and dashes
     CGFloat maxMiniline = W / ((CGFloat) _settings.numberColums + 1 );
     if (_settings.sizeMiniLine.width >= maxMiniline) {
         _settings.sizeMiniLine = CGSizeMake(maxMiniline - _settings.indent, _settings.sizeMiniLine.height);
@@ -58,31 +63,31 @@
     
     NSArray* currentArray = _settings.arrayData;
 
-    // Рисуем линию в виде тире с отступом
+    // Draw a line in the form of a dash indented
     for (int index = 1 ; index <= _settings.numberColums; index++) {
         CGFloat kX = (CGFloat)index;
         CGFloat kColums = (CGFloat)(_settings.numberColums + 1);
         
-        // Вертикаль вокруг которой строиться столбец
+        // Vertical column around which to build
         CGPoint center = CGPointMake((kX * W) / kColums, kYLine);
         
-        // Координаты черкаша
+        // Coordinates dashes
         CGRect rectMINIline = [self miniRectAtPoint:center];
         
-        // Отрисуем черкаш
+        // Нарисуем черточку
         CGContextSetFillColorWithColor(ctx, [_settings.bottomLineColor CGColor]);
         CGContextFillRect(ctx, rectMINIline);
         
         if ( index <= currentArray.count ) {
-            // Вычисляем корректную высоту для нашего столбика в пределах допустимых высот
-            NSNumber* h = (NSNumber *)currentArray[index - 1];   // Значение из массива
-            CGFloat procent =  ( h.floatValue * 100.0f ) / Hmax; // вычисляем процент от самого большого
-            CGFloat currentHeghtColum = ( procent * kHmax ) / 100 ; // сохраним пропорции для наших размеров
+            // We calculate the correct height for our colum within the permissible heights
+            NSNumber* h = (NSNumber *)currentArray[index - 1];
+            CGFloat procent =  ( h.floatValue * 100.0f ) / Hmax;
+            CGFloat currentHeghtColum = ( procent * kHmax ) / 100 ;
             
-            // Координаты столбика
+            // Coordinates column
             CGRect rectColum =  [self columRectAtPoint:center andHeight:currentHeghtColum];
 
-            // Отрисуем столбик с закругляшками
+            // Draw bar with roundels
             UIBezierPath* columPath = [UIBezierPath bezierPathWithRoundedRect:rectColum byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(2, 2)];
             
             CGContextSetFillColorWithColor(ctx, [_settings.columsLineColor CGColor]);
@@ -99,13 +104,10 @@
     return ctxImage;
 }
 
-
-// Получаем корректную коорденатную сетку для столбиков
 - (CGRect) columRectAtPoint: (CGPoint) point andHeight: (CGFloat) height {
     return CGRectMake(point.x - ( _settings.widthColums / 2 ), point.y - height - _settings.indent - _settings.sizeMiniLine.height, _settings.widthColums, height);
 }
 
-// Получаем корректную коорденатную сетку для черкашей
 - (CGRect) miniRectAtPoint:(CGPoint) point {
     return CGRectMake(point.x - ( _settings.sizeMiniLine.width / 2), point.y - _settings.sizeMiniLine.height, _settings.sizeMiniLine.width, _settings.sizeMiniLine.height);
 }
