@@ -7,18 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE3774F71CA4EA5A00641861 /* AKGraphBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3774F61CA4EA5A00641861 /* AKGraphBar.m */; };
+		AE3774FA1CA4EB0700641861 /* AKGraphBarSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3774F91CA4EB0700641861 /* AKGraphBarSettings.m */; };
+		AE3774FF1CA5101E00641861 /* AKView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3774FE1CA5101E00641861 /* AKView.m */; };
 		AE9345C11CA469FC00DFD341 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9345C01CA469FC00DFD341 /* main.m */; };
 		AE9345C41CA469FC00DFD341 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9345C31CA469FC00DFD341 /* AppDelegate.m */; };
 		AE9345CC1CA469FC00DFD341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9345CB1CA469FC00DFD341 /* Assets.xcassets */; };
+		AE9345D81CA46AA200DFD341 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9345D61CA46AA200DFD341 /* MainView.xib */; };
+		AE9345DB1CA46B2200DFD341 /* Demoview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9345D91CA46B2200DFD341 /* Demoview.xib */; };
+		AE9345DE1CA46B4700DFD341 /* AKDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9345DD1CA46B4700DFD341 /* AKDemoController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE3774F51CA4EA5A00641861 /* AKGraphBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AKGraphBar.h; path = Model/AKGraphBar.h; sourceTree = "<group>"; };
+		AE3774F61CA4EA5A00641861 /* AKGraphBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKGraphBar.m; path = Model/AKGraphBar.m; sourceTree = "<group>"; };
+		AE3774F81CA4EB0700641861 /* AKGraphBarSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AKGraphBarSettings.h; path = Model/AKGraphBarSettings.h; sourceTree = "<group>"; };
+		AE3774F91CA4EB0700641861 /* AKGraphBarSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKGraphBarSettings.m; path = Model/AKGraphBarSettings.m; sourceTree = "<group>"; };
+		AE3774FC1CA50A9800641861 /* AKGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AKGraph.h; path = Model/AKGraph.h; sourceTree = "<group>"; };
+		AE3774FD1CA5101E00641861 /* AKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKView.h; sourceTree = "<group>"; };
+		AE3774FE1CA5101E00641861 /* AKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKView.m; sourceTree = "<group>"; };
 		AE9345BC1CA469FC00DFD341 /* AKGraphBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKGraphBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9345C01CA469FC00DFD341 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE9345C21CA469FC00DFD341 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AE9345C31CA469FC00DFD341 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AE9345CB1CA469FC00DFD341 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE9345D01CA469FC00DFD341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE9345D71CA46AA200DFD341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainView.xib; sourceTree = "<group>"; };
+		AE9345DA1CA46B2200DFD341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Demoview.xib; sourceTree = "<group>"; };
+		AE9345DC1CA46B4700DFD341 /* AKDemoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AKDemoController.h; path = Controllers/AKDemoController.h; sourceTree = "<group>"; };
+		AE9345DD1CA46B4700DFD341 /* AKDemoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKDemoController.m; path = Controllers/AKDemoController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,9 +49,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE3774FB1CA4EFDF00641861 /* GraphBar */ = {
+			isa = PBXGroup;
+			children = (
+				AE3774F81CA4EB0700641861 /* AKGraphBarSettings.h */,
+				AE3774F91CA4EB0700641861 /* AKGraphBarSettings.m */,
+				AE3774F51CA4EA5A00641861 /* AKGraphBar.h */,
+				AE3774F61CA4EA5A00641861 /* AKGraphBar.m */,
+				AE3774FC1CA50A9800641861 /* AKGraph.h */,
+			);
+			name = GraphBar;
+			sourceTree = "<group>";
+		};
+		AE3775001CA5102700641861 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				AE3774FD1CA5101E00641861 /* AKView.h */,
+				AE3774FE1CA5101E00641861 /* AKView.m */,
+			);
+			name = CustomView;
+			sourceTree = "<group>";
+		};
 		AE9345B31CA469FC00DFD341 = {
 			isa = PBXGroup;
 			children = (
+				AE3775001CA5102700641861 /* CustomView */,
+				AE3774FB1CA4EFDF00641861 /* GraphBar */,
 				AE9345BE1CA469FC00DFD341 /* AKGraphBar */,
 				AE9345BD1CA469FC00DFD341 /* Products */,
 			);
@@ -53,6 +93,10 @@
 			children = (
 				AE9345C21CA469FC00DFD341 /* AppDelegate.h */,
 				AE9345C31CA469FC00DFD341 /* AppDelegate.m */,
+				AE9345DC1CA46B4700DFD341 /* AKDemoController.h */,
+				AE9345DD1CA46B4700DFD341 /* AKDemoController.m */,
+				AE9345D91CA46B2200DFD341 /* Demoview.xib */,
+				AE9345D61CA46AA200DFD341 /* MainView.xib */,
 				AE9345CB1CA469FC00DFD341 /* Assets.xcassets */,
 				AE9345D01CA469FC00DFD341 /* Info.plist */,
 				AE9345BF1CA469FC00DFD341 /* Supporting Files */,
@@ -126,6 +170,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE9345CC1CA469FC00DFD341 /* Assets.xcassets in Resources */,
+				AE9345DB1CA46B2200DFD341 /* Demoview.xib in Resources */,
+				AE9345D81CA46AA200DFD341 /* MainView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,12 +182,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3774FF1CA5101E00641861 /* AKView.m in Sources */,
+				AE3774FA1CA4EB0700641861 /* AKGraphBarSettings.m in Sources */,
 				AE9345C41CA469FC00DFD341 /* AppDelegate.m in Sources */,
+				AE9345DE1CA46B4700DFD341 /* AKDemoController.m in Sources */,
+				AE3774F71CA4EA5A00641861 /* AKGraphBar.m in Sources */,
 				AE9345C11CA469FC00DFD341 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AE9345D61CA46AA200DFD341 /* MainView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE9345D71CA46AA200DFD341 /* Base */,
+			);
+			name = MainView.xib;
+			sourceTree = "<group>";
+		};
+		AE9345D91CA46B2200DFD341 /* Demoview.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE9345DA1CA46B2200DFD341 /* Base */,
+			);
+			name = Demoview.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AE9345D11CA469FC00DFD341 /* Debug */ = {
