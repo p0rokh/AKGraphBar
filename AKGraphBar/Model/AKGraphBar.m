@@ -8,6 +8,13 @@
 
 #import "AKGraphBar.h"
 
+@interface AKGraphBar ()
+
+- (CGRect) columRectAtPoint: (CGPoint) point andHeight: (CGFloat) height;
+- (CGRect) miniRectAtPoint:(CGPoint) point;
+
+@end
+
 @implementation AKGraphBar
 
 #pragma mark - init
@@ -92,13 +99,8 @@
     return ctxImage;
 }
 
-/*
- // Получаем корректную коорденатную сетку для столбиков
- private func columRect ( point : CGPoint , height : CGFloat) -> CGRect {
- return CGRect(x: point.x - ( widthColums! / 2 ), y: point.y - height - indent - sizeMiniLine.height, width: widthColums!, height: height )
- }
- */
 
+// Получаем корректную коорденатную сетку для столбиков
 - (CGRect) columRectAtPoint: (CGPoint) point andHeight: (CGFloat) height {
     return CGRectMake(point.x - ( _settings.widthColums / 2 ), point.y - height - _settings.indent - _settings.sizeMiniLine.height, _settings.widthColums, height);
 }
