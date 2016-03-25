@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AKGraphBarSettings.h"
 
 @interface AKGraphBar : NSObject
+
+@property (strong, nonatomic) AKGraphBarSettings* settings;
+
+-(id) initWhithSetting:(AKGraphBarSettings *) settings;
+
+-(UIImage *) drawGraphBarInRect:(CGRect) rect;
 
 @end
