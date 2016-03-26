@@ -77,6 +77,12 @@
     self.maxHeightColum = [self getMAXHeightInArrayData:_arrayData];
 }
 
+/* v1.1.1 */
+-(void)setArrayData:(NSArray * _Nonnull)arrayData {
+    _arrayData = [self getCurrentArrayFrom:arrayData];
+    self.maxHeightColum = [self getMAXHeightInArrayData:_arrayData];
+}
+
 - (CGFloat)getMAXHeightInArrayData:(NSArray *)array {
     NSInteger maxNumber = kDefaultHeightColum;
     for (NSNumber* object in array) {

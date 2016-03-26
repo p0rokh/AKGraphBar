@@ -14,10 +14,11 @@
  **********************/
 
 @class AKGraphBar;
-@protocol AKGraphBarDelegate <NSObject>
+@protocol AKGraphBarDelegate <NSObject, UITableViewDelegate>
 
+/* v1.1.1 */
 /* Requesting the correct size  */
-- (CGRect) parametersOfTheCanvas: (AKGraphBar * _Nonnull) graphBar;
+- (CGRect) sizeOfImageInGraphBar: (AKGraphBar * _Nonnull) graphBar;
 
 /* Use this delegate method to implement the logic of your application, it returns a picture.. */
 - (void) graphBar:(AKGraphBar * _Nonnull)graphBar drawImage:(UIImage * _Nullable) image;
@@ -43,10 +44,11 @@
 - (id _Nonnull) initWhithSetting:( AKGraphBarSettings * _Nonnull ) settings;
 - (id _Nonnull) initWhithSetting:(AKGraphBarSettings * _Nonnull)settings andDelegate:(id _Nullable) delegate;
 
+/*v1.1.0*/
 /* Returns schedule */
 - (void) drawGraphBar;
 
-/* v1.0.3 */
+/* v1.1.0 */
 /* setter methods */
 - (void) setBackgroundColor:(UIColor * _Nullable) color;
 - (void) setColumsLineColor:(UIColor * _Nullable) color;

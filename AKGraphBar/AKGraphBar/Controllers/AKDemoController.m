@@ -69,7 +69,7 @@
 
 # pragma mark - delegate method AK Graph Bar delegate
 
--(CGRect)parametersOfTheCanvas:(AKGraphBar *)graphBar {
+-(CGRect)sizeOfImageInGraphBar:(AKGraphBar *)graphBar {
     if (_graphImageView) {
         return _graphImageView.bounds;
     }

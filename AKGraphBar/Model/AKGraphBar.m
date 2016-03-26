@@ -16,9 +16,8 @@
 /* Get the correct rect for dashes */
 - (CGRect) miniRectAtPoint:(CGPoint) point;
 
-/* v1.0.3 */
+/* v1.1.0 */
 - (void) drawGraphBarInRect:(CGRect)rect;
-
 - (void) reportErrorMessage:(NSString * _Nonnull) message ;
 
 @end
@@ -44,8 +43,8 @@
 
 /* v1.0.3 */
 - (void) drawGraphBar {
-    if ([_delegate respondsToSelector:@selector(parametersOfTheCanvas:)])  {
-       CGRect currentRect = [_delegate parametersOfTheCanvas:self];
+    if ([_delegate respondsToSelector:@selector(sizeOfImageInGraphBar:)])  {
+       CGRect currentRect = [_delegate sizeOfImageInGraphBar:self];
         
         if (CGRectEqualToRect(CGRectZero, currentRect) ) {
             [self reportErrorMessage:@"Слишком малые размеры"];
@@ -67,7 +66,7 @@
     UIGraphicsBeginImageContext(rect.size);
     
     // First we learn the maximum value in the array
-    CGFloat Hmax = _settings.maxHeightColum;
+    CGFloat Hmax = _settings.maxHeightColum; //( rect.size.height > _settings.maxHeightColum ) ? rect.size.height : _settings.maxHeightColum ;
     
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     
@@ -76,9 +75,9 @@
     CGContextFillRect(ctx, rect);
     
     // Default settings
-    CGFloat kYLine = rect.size.height - _settings.indentBottomLine; // Самая нижняя точка
-    CGFloat W = rect.size.width; // Общая ширина контента
-    CGFloat kHmax = kYLine - _settings.indent - _settings.sizeMiniLine.height - _settings.indentTopLine; // Максимальный размер отведенный под столбик
+    CGFloat kYLine = rect.size.height - _settings.indentBottomLine;
+    CGFloat W = rect.size.width;
+    CGFloat kHmax = kYLine - _settings.indent - _settings.sizeMiniLine.height - _settings.indentTopLine;
 
     // Adjust the width of the column and dashes
     CGFloat maxMiniline = W / ((CGFloat) _settings.numberColums + 1 );
@@ -127,7 +126,7 @@
     
     UIGraphicsEndImageContext();
 
-    /* v1.0.3 */
+    /* v1.1.0 */
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         if ([_delegate respondsToSelector:@selector(graphBar:drawImage:)]) {
@@ -140,7 +139,7 @@
     }];
 }
 
-/* v1.0.3 */
+/* v1.1.0 */
 - (void) reportErrorMessage:(NSString *) message {
     if ([_delegate respondsToSelector:@selector(graphBar:errorWithMessage:)]) {
         [_delegate graphBar:self errorWithMessage:message];
@@ -155,8 +154,8 @@
     return CGRectMake(point.x - ( _settings.sizeMiniLine.width / 2), point.y - _settings.sizeMiniLine.height, _settings.sizeMiniLine.width, _settings.sizeMiniLine.height);
 }
 
-/* v1.0.3 */
-# pragma mark - setter meyhods
+/* v1.1.0 */
+# pragma mark - setter methods
 
 - (void) setBackgroundColor:(UIColor *) color {
     if (color) {
