@@ -37,10 +37,28 @@
     [super didReceiveMemoryWarning];
 }
 
+/* v1.1.3 */
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(complitedDrawGraphBar:) name:AKGraphBarCreateImageNotification object:nil];
+}
+
+/* v1.1.3 */
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AKGraphBarCreateImageNotification object:nil];
+}
+
 - (IBAction)addGraphAction:(id)sender {
 
     [self changeSettingsBarRandom];
     [graphBar drawGraphBar];
+}
+
+/* v1.1.3 */
+- (void) complitedDrawGraphBar:(NSNotification *) notification {
+    UIImage* image = (UIImage *)notification.object;
+    NSLog(@"--->Image size W: %f, H: %f", image.size.width, image.size.height);
 }
 
 - (void) changeSettingsBarRandom {

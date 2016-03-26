@@ -60,3 +60,6 @@
 - (void) setArrayData:(NSArray * _Nullable) newArray;
 
 @end
+
+/* v1.1.3 */
+extern NSString* _Nonnull const AKGraphBarCreateImageNotification;

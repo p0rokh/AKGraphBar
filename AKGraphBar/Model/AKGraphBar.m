@@ -8,6 +8,9 @@
 
 #import "AKGraphBar.h"
 
+/* v1.1.3 */
+NSString* const AKGraphBarCreateImageNotification = @"AKGraphBarCreateImageNotification";
+
 @interface AKGraphBar ()
 
 #if NS_BLOCKS_AVAILABLE
@@ -145,6 +148,12 @@
     /* v1.1.0 */
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+
+        /* v1.1.3 */
+        if (ctxImage) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:AKGraphBarCreateImageNotification object:ctxImage];
+        }
+        
         if ([_delegate respondsToSelector:@selector(graphBar:drawImage:)]) {
             [_delegate graphBar:self drawImage:ctxImage];
         }
