@@ -12,11 +12,11 @@
 @interface AKGraphBarSettings : NSObject <NSCopying>
 
 /*Default whiteColor*/
-@property (copy, nonatomic) UIColor* background;
+@property (copy, nonatomic, nonnull) UIColor* background;
 
 /* Default orangeColor */
-@property (copy, nonatomic) UIColor* columsLineColor;
-@property (copy, nonatomic) UIColor* bottomLineColor;
+@property (copy, nonatomic, nonnull) UIColor* columsLineColor;
+@property (copy, nonatomic, nonnull) UIColor* bottomLineColor;
 
 /* Default 10.0f  */
 @property (assign) CGFloat indentBottomLine;
@@ -35,16 +35,15 @@
 @property (assign) CGFloat widthColums;
 
 /* Data for NSNumber type columns */
-@property (copy, nonatomic) NSArray* arrayData;
-
+@property (copy, nonatomic, nonnull) NSArray* arrayData;
 
 @property (assign) BOOL miniLineHidden;
 
 @property (assign) CGFloat maxHeightColum;
 
 /* Init methods */
--(id)initDefaultWithArrayData:(NSArray*) arrayData;
--(id)initDefaultWithArrayData:(NSArray*) arrayData andNumberColums:(NSInteger) numberColums;
+-(id _Nonnull)initDefaultWithArrayData:(NSArray* _Nonnull) arrayData;
+-(id _Nonnull)initDefaultWithArrayData:(NSArray* _Nonnull) arrayData andNumberColums:(NSInteger) numberColums;
 
 
 @end

@@ -16,26 +16,50 @@
 /* Get the correct rect for dashes */
 - (CGRect) miniRectAtPoint:(CGPoint) point;
 
+/* v1.0.3 */
+- (void) drawGraphBarInRect:(CGRect)rect;
+
+- (void) reportErrorMessage:(NSString * _Nonnull) message ;
+
 @end
 
 @implementation AKGraphBar
 
 #pragma mark - init
 
-- (id)initWhithSetting:(AKGraphBarSettings *)settings {
+- (id)initWhithSetting:(AKGraphBarSettings *)settings andDelegate:(id) delegate {
     self = [super init];
     
     if (self) {
         self.settings = [settings copy];
+        self.delegate = delegate;
     }
+    
     return self;
+}
+
+- (id)initWhithSetting:(AKGraphBarSettings *)settings {
+    return [self initWhithSetting:settings andDelegate:nil];
+}
+
+/* v1.0.3 */
+- (void) drawGraphBar {
+    if ([_delegate respondsToSelector:@selector(parametersOfTheCanvas:)])  {
+       CGRect currentRect = [_delegate parametersOfTheCanvas:self];
+        
+        if (currentRect.size.width <= 0 || currentRect.size.height <= 0 ) {
+            [self reportErrorMessage:@"Слишком малые размеры"];
+        } else {
+            [self drawGraphBarInRect:currentRect];
+        }
+    }
 }
 
 #pragma mark - Draw graph bar
 
-- (UIImage *)drawGraphBarInRect:(CGRect)rect {
+- (void) drawGraphBarInRect:(CGRect)rect {
     if (_settings == nil) {
-        return nil;
+        return;
     }
     
     UIGraphicsBeginImageContext(rect.size);
@@ -100,8 +124,22 @@
     UIImage* ctxImage = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
+
+    /* v1.0.3 */
+    if ([_delegate respondsToSelector:@selector(graphBar:drawImage:)]) {
+        [_delegate graphBar:self drawImage:ctxImage];
+    }
     
-    return ctxImage;
+    if (ctx == nil) {
+        [self reportErrorMessage:@"Не удалось отрисовать картинку"];
+    }
+}
+
+/* v1.0.3 */
+- (void) reportErrorMessage:(NSString *) message {
+    if ([_delegate respondsToSelector:@selector(graphBar:errorWithMessage:)]) {
+        [_delegate graphBar:self errorWithMessage:message];
+    }
 }
 
 - (CGRect) columRectAtPoint: (CGPoint) point andHeight: (CGFloat) height {
@@ -110,6 +148,33 @@
 
 - (CGRect) miniRectAtPoint:(CGPoint) point {
     return CGRectMake(point.x - ( _settings.sizeMiniLine.width / 2), point.y - _settings.sizeMiniLine.height, _settings.sizeMiniLine.width, _settings.sizeMiniLine.height);
+}
+
+/* v1.0.3 */
+# pragma mark - setter meyhods
+
+- (void) setBackgroundColor:(UIColor *) color {
+    if (color) {
+        [self.settings setBackground:color];
+    }
+}
+
+- (void) setColumsLineColor:(UIColor *) color {
+    if (color) {
+        [self.settings setColumsLineColor:color];
+    }
+}
+
+- (void) setBottomLineColor:(UIColor *) color {
+    if (color) {
+        [self.settings setBottomLineColor:color];
+    }
+}
+
+- (void) setArrayData:(NSArray *) newArray {
+    if (newArray) {
+        [self.settings setArrayData:newArray];
+    }
 }
 
 @end
