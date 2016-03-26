@@ -52,11 +52,11 @@
 		AE3774FB1CA4EFDF00641861 /* GraphBar */ = {
 			isa = PBXGroup;
 			children = (
+				AE3774FC1CA50A9800641861 /* AKGraph.h */,
 				AE3774F81CA4EB0700641861 /* AKGraphBarSettings.h */,
 				AE3774F91CA4EB0700641861 /* AKGraphBarSettings.m */,
 				AE3774F51CA4EA5A00641861 /* AKGraphBar.h */,
 				AE3774F61CA4EA5A00641861 /* AKGraphBar.m */,
-				AE3774FC1CA50A9800641861 /* AKGraph.h */,
 			);
 			name = GraphBar;
 			sourceTree = "<group>";
@@ -297,10 +297,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AKGraphBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Anton.Korolev.AKGraphBar;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "386c312e-ba5c-4321-b694-d52fb7db5805";
 			};
 			name = Debug;
 		};
@@ -308,10 +310,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AKGraphBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Anton.Korolev.AKGraphBar;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "386c312e-ba5c-4321-b694-d52fb7db5805";
 			};
 			name = Release;
 		};

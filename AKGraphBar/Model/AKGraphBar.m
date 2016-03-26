@@ -26,7 +26,7 @@
     self = [super init];
     
     if (self) {
-        self.settings = settings;
+        self.settings = [settings copy];
     }
     return self;
 }

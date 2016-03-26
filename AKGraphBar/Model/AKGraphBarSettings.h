@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface AKGraphBarSettings : NSObject
+@interface AKGraphBarSettings : NSObject <NSCopying>
 
 /*Default whiteColor*/
-@property (strong, nonatomic) UIColor* background;
+@property (copy, nonatomic) UIColor* background;
 
 /* Default orangeColor */
-@property (strong, nonatomic) UIColor* columsLineColor;
-@property (strong, nonatomic) UIColor* bottomLineColor;
+@property (copy, nonatomic) UIColor* columsLineColor;
+@property (copy, nonatomic) UIColor* bottomLineColor;
 
 /* Default 10.0f  */
 @property (assign) CGFloat indentBottomLine;
@@ -35,7 +35,7 @@
 @property (assign) CGFloat widthColums;
 
 /* Data for NSNumber type columns */
-@property (strong, nonatomic) NSArray* arrayData;
+@property (copy, nonatomic) NSArray* arrayData;
 
 
 @property (assign) BOOL miniLineHidden;

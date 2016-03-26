@@ -26,9 +26,32 @@
 
 # pragma mark - Init methods
 
+-(id)copyWithZone:(NSZone *)zone {
+
+    AKGraphBarSettings *copySettings = [[AKGraphBarSettings allocWithZone:zone] init];
+   
+    if (copySettings) {
+        [copySettings setBackground:self.background];
+        [copySettings setColumsLineColor:self.columsLineColor];
+        [copySettings setBottomLineColor:self.bottomLineColor];
+        [copySettings setIndentBottomLine:self.indentBottomLine];
+        [copySettings setIndentTopLine:self.indentTopLine];
+        [copySettings setIndent:self.indent];
+        [copySettings setNumberColums:self.numberColums];
+        [copySettings setSizeMiniLine:self.sizeMiniLine];
+        [copySettings setWidthColums:self.widthColums];
+        [copySettings setArrayData:self.arrayData];
+        [copySettings setMiniLineHidden:self.miniLineHidden];
+        [copySettings setMaxHeightColum:self.maxHeightColum];
+    }
+    
+    return copySettings;
+}
+
 -(id)initDefaultWithArrayData:(NSArray *)arrayData {
     return [self initDefaultWithArrayData:arrayData andNumberColums:0];
 }
+
 -(id)initDefaultWithArrayData:(NSArray *)arrayData andNumberColums:(NSInteger)numberColums {
     self = [super init];
     if (self) {
@@ -75,7 +98,6 @@
             [currentArray addObject:@0];
         }
     }
-    
     return currentArray;
 }
 
