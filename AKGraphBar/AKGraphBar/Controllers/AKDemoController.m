@@ -25,7 +25,12 @@
     NSArray* arrayGraph = [NSArray arrayWithObjects:@100, @220, @56, @154, @310, @197, nil];
     AKGraphBarSettings* setting = [[AKGraphBarSettings alloc] initDefaultWithArrayData:arrayGraph];
     graphBar = [[AKGraphBar alloc] initWhithSetting:setting andDelegate:self];
-
+    
+    [graphBar drawGraphBarInRect:CGRectZero withCompletedBlock:^(UIImage * _Nullable image) {
+        self.graphImageView.image = image;        
+    } andErrorBlock:^(NSString * _Nonnull message) {
+        NSLog(@"--->ERROR block graph bar message: %@", message);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,7 +87,7 @@
 }
 
 - (void) graphBar:(AKGraphBar *)graphBar errorWithMessage:(NSString *)message {
-    NSLog(@"--->ERROR graph bar message: %@", message);
+    NSLog(@"--->ERROR delegate graph bar message: %@", message);
 }
 
 #pragma mark - random
