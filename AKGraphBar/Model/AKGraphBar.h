@@ -16,12 +16,15 @@
 @class AKGraphBar;
 @protocol AKGraphBarDelegate <NSObject>
 
+/* Requesting the correct size  */
 - (CGRect) parametersOfTheCanvas: (AKGraphBar * _Nonnull) graphBar;
 
-/* Use this method delegate to implement the logic of your application, if you use a timer with a countdown type. */
+/* Use this delegate method to implement the logic of your application, it returns a picture.. */
 - (void) graphBar:(AKGraphBar * _Nonnull)graphBar drawImage:(UIImage * _Nullable) image;
 
 @optional
+
+/* It triggered in the event when: 1.CGRectZero 2. Unable to generate a picture, in this case, the delegate "drawImage" would work. */
 - (void) graphBar: (AKGraphBar * _Nonnull) graphBar errorWithMessage: (NSString * _Nonnull) message;
 
 @end
