@@ -47,10 +47,12 @@
     if ([_delegate respondsToSelector:@selector(parametersOfTheCanvas:)])  {
        CGRect currentRect = [_delegate parametersOfTheCanvas:self];
         
-        if (currentRect.size.width <= 0 || currentRect.size.height <= 0 ) {
+        if (CGRectEqualToRect(CGRectZero, currentRect) ) {
             [self reportErrorMessage:@"Слишком малые размеры"];
         } else {
-            [self drawGraphBarInRect:currentRect];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [self drawGraphBarInRect:currentRect];
+            });
         }
     }
 }
@@ -126,13 +128,16 @@
     UIGraphicsEndImageContext();
 
     /* v1.0.3 */
-    if ([_delegate respondsToSelector:@selector(graphBar:drawImage:)]) {
-        [_delegate graphBar:self drawImage:ctxImage];
-    }
     
-    if (ctx == nil) {
-        [self reportErrorMessage:@"Не удалось отрисовать картинку"];
-    }
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        if ([_delegate respondsToSelector:@selector(graphBar:drawImage:)]) {
+            [_delegate graphBar:self drawImage:ctxImage];
+        }
+        
+        if (ctx == nil) {
+            [self reportErrorMessage:@"Не удалось отрисовать картинку"];
+        }
+    }];
 }
 
 /* v1.0.3 */

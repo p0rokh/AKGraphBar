@@ -68,12 +68,13 @@
 }
 
 # pragma mark - delegate method AK Graph Bar delegate
-- (CGRect) parametersOfTheCanvas:(AKGraphBar *)graphBar {
+
+-(CGRect)parametersOfTheCanvas:(AKGraphBar *)graphBar {
     if (_graphImageView) {
         return _graphImageView.bounds;
-    }else{
-        return  CGRectZero;
     }
+    
+    return CGRectZero;
 }
 
 - (void)graphBar:(AKGraphBar *)graphBar drawImage:(UIImage *)image {
