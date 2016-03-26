@@ -48,6 +48,10 @@
 /* Returns schedule */
 - (void) drawGraphBar;
 
+#if NS_BLOCKS_AVAILABLE
+- (void) drawGraphBarInRect:(CGRect) rect withCompletedBlock:(void (^ _Nullable)(UIImage * _Nullable image))completedBlock andErrorBlock:(void (^ _Nullable)(NSString* _Nonnull message))errorBlock;
+#endif
+
 /* v1.1.0 */
 /* setter methods */
 - (void) setBackgroundColor:(UIColor * _Nullable) color;
