@@ -166,8 +166,6 @@ NSString* const AKGraphBarCreateImageNotification = @"AKGraphBarCreateImageNotif
         if ([_delegate respondsToSelector:@selector(graphBar:drawImage:)]) {
             [_delegate graphBar:self drawImage:ctxImage];
         }
-        [self reportErrorMessage:@"Не удалось отрисовать картинку"];
-
         
 #if NS_BLOCKS_AVAILABLE
         if (_completedBlock != nil) {
@@ -207,25 +205,41 @@ NSString* const AKGraphBarCreateImageNotification = @"AKGraphBarCreateImageNotif
 
 - (void) setBackgroundColor:(UIColor *) color {
     if (color) {
-        [self.settings setBackground:color];
+        
+        /* v1.1.5 */
+        @synchronized (_settings) {
+            [self.settings setBackground:color];
+        }
     }
 }
 
 - (void) setColumsLineColor:(UIColor *) color {
     if (color) {
-        [self.settings setColumsLineColor:color];
+        
+        /* v1.1.5 */
+        @synchronized (_settings) {
+            [self.settings setColumsLineColor:color];
+        }
     }
 }
 
 - (void) setBottomLineColor:(UIColor *) color {
     if (color) {
-        [self.settings setBottomLineColor:color];
+        
+        /* v1.1.5 */
+        @synchronized (_settings) {
+            [self.settings setBottomLineColor:color];
+        }
     }
 }
 
 - (void) setArrayData:(NSArray *) newArray {
     if (newArray) {
-        [self.settings setArrayData:newArray];
+        
+        /* v1.1.5 */
+        @synchronized (_settings) {
+            [self.settings setArrayData:newArray];
+        }
     }
 }
 

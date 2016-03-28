@@ -10,6 +10,7 @@
 #define AKGraph_h
 
 #import "AKGraphBarSettings.h"
+#import "AKBulderGraph.h"
 #import "AKGraphBar.h"
 
 #endif /* AKGraph_h */

@@ -53,12 +53,12 @@
 - (void) drawGraphBarInRect:(CGRect) rect withCompletedBlock:(void (^ _Nullable)(UIImage * _Nullable image))completedBlock andErrorBlock:(void (^ _Nullable)(NSString* _Nonnull message))errorBlock;
 #endif
 
-/* v1.1.0 */
+/* v1.1.0 - v1.1.5 (change _Nullable = _Nonnull)*/
 /* setter methods */
-- (void) setBackgroundColor:(UIColor * _Nullable) color;
-- (void) setColumsLineColor:(UIColor * _Nullable) color;
-- (void) setBottomLineColor:(UIColor * _Nullable) color;
-- (void) setArrayData:(NSArray * _Nullable) newArray;
+- (void) setBackgroundColor:(UIColor * _Nonnull) color;
+- (void) setColumsLineColor:(UIColor * _Nonnull) color;
+- (void) setBottomLineColor:(UIColor * _Nonnull) color;
+- (void) setArrayData:(NSArray * _Nonnull) newArray;
 
 @end
 

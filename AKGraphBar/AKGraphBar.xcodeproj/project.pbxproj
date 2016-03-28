@@ -16,6 +16,7 @@
 		AE9345D81CA46AA200DFD341 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9345D61CA46AA200DFD341 /* MainView.xib */; };
 		AE9345DB1CA46B2200DFD341 /* Demoview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9345D91CA46B2200DFD341 /* Demoview.xib */; };
 		AE9345DE1CA46B4700DFD341 /* AKDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9345DD1CA46B4700DFD341 /* AKDemoController.m */; };
+		AEA94B231CA8F73C000470E0 /* AKBulderGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA94B221CA8F73C000470E0 /* AKBulderGraph.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		AE9345DA1CA46B2200DFD341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Demoview.xib; sourceTree = "<group>"; };
 		AE9345DC1CA46B4700DFD341 /* AKDemoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AKDemoController.h; path = Controllers/AKDemoController.h; sourceTree = "<group>"; };
 		AE9345DD1CA46B4700DFD341 /* AKDemoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKDemoController.m; path = Controllers/AKDemoController.m; sourceTree = "<group>"; };
+		AEA94B211CA8F73C000470E0 /* AKBulderGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AKBulderGraph.h; path = Model/AKBulderGraph.h; sourceTree = "<group>"; };
+		AEA94B221CA8F73C000470E0 /* AKBulderGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKBulderGraph.m; path = Model/AKBulderGraph.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,8 @@
 				AE3774F91CA4EB0700641861 /* AKGraphBarSettings.m */,
 				AE3774F51CA4EA5A00641861 /* AKGraphBar.h */,
 				AE3774F61CA4EA5A00641861 /* AKGraphBar.m */,
+				AEA94B211CA8F73C000470E0 /* AKBulderGraph.h */,
+				AEA94B221CA8F73C000470E0 /* AKBulderGraph.m */,
 			);
 			name = GraphBar;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				AE3774FF1CA5101E00641861 /* AKView.m in Sources */,
 				AE3774FA1CA4EB0700641861 /* AKGraphBarSettings.m in Sources */,
 				AE9345C41CA469FC00DFD341 /* AppDelegate.m in Sources */,
+				AEA94B231CA8F73C000470E0 /* AKBulderGraph.m in Sources */,
 				AE9345DE1CA46B4700DFD341 /* AKDemoController.m in Sources */,
 				AE3774F71CA4EA5A00641861 /* AKGraphBar.m in Sources */,
 				AE9345C11CA469FC00DFD341 /* main.m in Sources */,
