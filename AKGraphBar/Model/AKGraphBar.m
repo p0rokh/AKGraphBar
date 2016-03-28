@@ -38,7 +38,8 @@ NSString* const AKGraphBarCreateImageNotification = @"AKGraphBarCreateImageNotif
     self = [super init];
     
     if (self) {
-        self.settings = [settings copy];
+        /* v1.1.4 */
+        self.settings = settings; //[settings copy];
         self.delegate = delegate;
     }
     
@@ -69,8 +70,16 @@ NSString* const AKGraphBarCreateImageNotification = @"AKGraphBarCreateImageNotif
     if (CGRectEqualToRect(CGRectZero, rect) ) {
         [self reportErrorMessage:@"Слишком малые размеры"];
     } else {
+        
+        /* v1.1.4 */
+        __weak typeof (self) weekSelf = self;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self drawGraphBarInRect:rect];
+            typeof (self) strongSelf = weekSelf;
+            if (!strongSelf) {
+                return;
+            }
+            
+            [strongSelf drawGraphBarInRect:rect];
         });
     }
 }
@@ -157,6 +166,8 @@ NSString* const AKGraphBarCreateImageNotification = @"AKGraphBarCreateImageNotif
         if ([_delegate respondsToSelector:@selector(graphBar:drawImage:)]) {
             [_delegate graphBar:self drawImage:ctxImage];
         }
+        [self reportErrorMessage:@"Не удалось отрисовать картинку"];
+
         
 #if NS_BLOCKS_AVAILABLE
         if (_completedBlock != nil) {
@@ -164,7 +175,6 @@ NSString* const AKGraphBarCreateImageNotification = @"AKGraphBarCreateImageNotif
             _completedBlock = nil;
         }
 #endif
-
         if (ctx == nil) {
             [self reportErrorMessage:@"Не удалось отрисовать картинку"];
         }

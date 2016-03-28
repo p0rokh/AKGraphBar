@@ -37,8 +37,9 @@
 
 @interface AKGraphBar : NSObject
 
-@property (strong, atomic, nonnull) AKGraphBarSettings* settings;
-@property (nonatomic,weak, nullable) id<AKGraphBarDelegate> delegate;
+/* v1.1.4 */
+@property (atomic, copy, nonnull) AKGraphBarSettings* settings;
+@property (nonatomic, weak, nullable) id<AKGraphBarDelegate> delegate;
 
 /* init method */
 - (id _Nonnull) initWhithSetting:( AKGraphBarSettings * _Nonnull ) settings;
