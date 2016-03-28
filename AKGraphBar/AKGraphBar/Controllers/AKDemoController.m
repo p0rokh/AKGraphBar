@@ -26,8 +26,17 @@
     AKGraphBarSettings* setting = [[AKGraphBarSettings alloc] initDefaultWithArrayData:arrayGraph];
     graphBar = [[AKGraphBar alloc] initWhithSetting:setting andDelegate:self];
     
+    
+    /* v1.1.4 */
+    __weak typeof (self) weekSelf = self;
     [graphBar drawGraphBarInRect:CGRectZero withCompletedBlock:^(UIImage * _Nullable image) {
-        self.graphImageView.image = image;        
+        
+        typeof (self) strongSelf = weekSelf;
+        if (!strongSelf) {
+            return;
+        }
+        
+        strongSelf.graphImageView.image = image;
     } andErrorBlock:^(NSString * _Nonnull message) {
         NSLog(@"--->ERROR block graph bar message: %@", message);
     }];
