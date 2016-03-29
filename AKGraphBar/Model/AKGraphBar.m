@@ -34,6 +34,15 @@ NSString* const AKGraphBarCreateImageNotification = @"AKGraphBarCreateImageNotif
 
 #pragma mark - init
 
+/* v1.1.6 */
+-(instancetype)init {
+    return [self initWhithSetting:[[AKGraphBarSettings alloc] init] andDelegate:nil];
+}
+
+- (id)initWhithSetting:(AKGraphBarSettings *)settings {
+    return [self initWhithSetting:settings andDelegate:nil];
+}
+
 - (id)initWhithSetting:(AKGraphBarSettings *)settings andDelegate:(id) delegate {
     self = [super init];
     
@@ -44,10 +53,6 @@ NSString* const AKGraphBarCreateImageNotification = @"AKGraphBarCreateImageNotif
     }
     
     return self;
-}
-
-- (id)initWhithSetting:(AKGraphBarSettings *)settings {
-    return [self initWhithSetting:settings andDelegate:nil];
 }
 
 /* v1.0.3 */

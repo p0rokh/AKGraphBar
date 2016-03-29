@@ -48,6 +48,11 @@
     return copySettings;
 }
 
+/* v1.1.6 */
+-(instancetype)init {
+    return [self initDefaultWithArrayData:[NSArray array] andNumberColums:0];
+}
+
 -(id)initDefaultWithArrayData:(NSArray *)arrayData {
     return [self initDefaultWithArrayData:arrayData andNumberColums:0];
 }

@@ -17,7 +17,7 @@
         if (!strongSelf) {
             return;
         }
-        
+         
         @synchronized (strongSelf) {
             [strongSelf update:graphBar /*completedBlock:block */];
         }
@@ -33,31 +33,32 @@
         NSUInteger randomeNumber = [self currentRandomFromMinimum:150 toMaximum:500];
         randomArray[index] = [NSNumber numberWithUnsignedInteger:randomeNumber];
     }
-    
-    /*
-    @synchronized (graphBar) {
-        [graphBar setArrayData:randomArray];
-    }
-    */
+
     [graphBar setArrayData:randomArray];
     
+    /* v1.1.6 - [graphBar.settings setMethod:[self randomeColor]]; */
     switch (type) {
         case 0:
-            [graphBar.settings setBackground:[self randomeColor]];
+            [graphBar setBackgroundColor:[self randomeColor]];
             break;
             
         case 1:
-            [graphBar.settings setBottomLineColor:[self randomeColor]];
+            [graphBar setBottomLineColor:[self randomeColor]];
             break;
+        
         case 2:
-            [graphBar.settings setColumsLineColor:[self randomeColor]];
+            [graphBar setColumsLineColor:[self randomeColor]];
             break;
             
         default:
             break;
     }
     
-    [graphBar drawGraphBar];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        @synchronized(graphBar) {
+            [graphBar drawGraphBar];
+        }
+    });
 }
 
 #pragma mark - random
