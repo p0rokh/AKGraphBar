@@ -12,5 +12,6 @@
 #import "AKGraphBarSettings.h"
 #import "AKBulderGraph.h"
 #import "AKGraphBar.h"
+#import "Prefix.h"
 
 #endif /* AKGraph_h */

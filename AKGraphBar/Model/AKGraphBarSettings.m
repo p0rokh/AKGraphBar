@@ -17,8 +17,8 @@
 @interface AKGraphBarSettings ()
 
 /* Private metods */
-- (void) setup:(NSInteger) numberColums andArrayData:(NSArray *) array;
-- (CGFloat) getMAXHeightInArrayData:(NSArray *)array ;
+- (void) setup:(NSInteger) numberColums andArrayData:(AKArray *) array;
+- (CGFloat) getMAXHeightInArrayData:(AKArray *)array ;
 
 @end
 
@@ -50,14 +50,14 @@
 
 /* v1.1.6 */
 -(instancetype)init {
-    return [self initDefaultWithArrayData:[NSArray array] andNumberColums:0];
+    return [self initDefaultWithArrayData:[AKArray array] andNumberColums:0];
 }
 
--(id)initDefaultWithArrayData:(NSArray *)arrayData {
+-(id)initDefaultWithArrayData:(AKArray *)arrayData {
     return [self initDefaultWithArrayData:arrayData andNumberColums:0];
 }
 
--(id)initDefaultWithArrayData:(NSArray *)arrayData andNumberColums:(NSInteger)numberColums {
+-(id)initDefaultWithArrayData:(AKArray *)arrayData andNumberColums:(NSInteger)numberColums {
     self = [super init];
     if (self) {
         [self setup:numberColums andArrayData:arrayData];
@@ -67,7 +67,7 @@
 
 # pragma mark - Setup settings
 
--(void) setup:(NSInteger) numberColums andArrayData:(NSArray *) array {
+-(void) setup:(NSInteger) numberColums andArrayData:(AKArray *) array {
     self.background = [UIColor whiteColor];
     self.columsLineColor = [UIColor orangeColor];
     self.bottomLineColor = [UIColor orangeColor];
@@ -83,12 +83,12 @@
 }
 
 /* v1.1.1 */
--(void)setArrayData:(NSArray * _Nonnull)arrayData {
+-(void)setArrayData:(AKArray * _Nonnull)arrayData {
     _arrayData = [self getCurrentArrayFrom:arrayData];
     self.maxHeightColum = [self getMAXHeightInArrayData:_arrayData];
 }
 
-- (CGFloat)getMAXHeightInArrayData:(NSArray *)array {
+- (CGFloat)getMAXHeightInArrayData:(AKArray *)array {
     NSInteger maxNumber = kDefaultHeightColum;
     for (NSNumber* object in array) {
         maxNumber = MAX(object.integerValue, maxNumber);
@@ -97,8 +97,8 @@
     return (CGFloat)maxNumber;
 }
 
-- (NSArray*) getCurrentArrayFrom:(NSArray*) array {
-    NSMutableArray* currentArray = [NSMutableArray arrayWithCapacity:_numberColums];
+- (AKArray *) getCurrentArrayFrom:(AKArray *) array {
+    NSMutableArray<NSNumber *>* currentArray = [NSMutableArray<NSNumber *> arrayWithCapacity:_numberColums];
     NSUInteger countArray = array.count;
     
     for (int index = 0; index < _numberColums; index++) {

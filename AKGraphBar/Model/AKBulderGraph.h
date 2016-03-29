@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AKGraphBar.h"
+#import "Prefix.h"
 
 /* v1.1.5 */
 @interface AKBulderGraph : NSObject

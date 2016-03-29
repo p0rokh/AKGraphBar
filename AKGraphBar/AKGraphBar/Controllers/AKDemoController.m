@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray* arrayGraph = [NSArray arrayWithObjects:@100, @220, @56, @154, @310, @197, nil];
+    AKArray * arrayGraph = [AKArray arrayWithObjects:@122, @321, @543, @233, @211, nil];
     AKGraphBarSettings* setting = [[AKGraphBarSettings alloc] initDefaultWithArrayData:arrayGraph];
     graphBar = [[AKGraphBar alloc] initWhithSetting:setting andDelegate:self];
     

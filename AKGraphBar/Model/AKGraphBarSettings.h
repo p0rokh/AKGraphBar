@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Prefix.h"
 
 @interface AKGraphBarSettings : NSObject <NSCopying>
 
@@ -35,15 +36,15 @@
 @property (assign, nonatomic) CGFloat widthColums;
 
 /* Data for NSNumber type columns */
-@property (copy, nonatomic, nonnull) NSArray* arrayData;
+@property (copy, nonatomic, nonnull) NSArray<NSNumber*>* arrayData;
 
 @property (assign, nonatomic) BOOL miniLineHidden;
 
 @property (assign, nonatomic) CGFloat maxHeightColum;
 
 /* Init methods */
--(id _Nonnull)initDefaultWithArrayData:(NSArray* _Nonnull) arrayData;
--(id _Nonnull)initDefaultWithArrayData:(NSArray* _Nonnull) arrayData andNumberColums:(NSInteger) numberColums;
+-(id _Nonnull)initDefaultWithArrayData:(AKArray * _Nonnull) arrayData;
+-(id _Nonnull)initDefaultWithArrayData:(AKArray * _Nonnull) arrayData andNumberColums:(NSInteger) numberColums;
 
 
 @end

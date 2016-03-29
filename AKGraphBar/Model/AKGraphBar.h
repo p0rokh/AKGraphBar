@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AKGraphBarSettings.h"
+#import "Prefix.h"
 
 /*********************
     Methods delegate
@@ -58,7 +59,7 @@
 - (void) setBackgroundColor:(UIColor * _Nonnull) color;
 - (void) setColumsLineColor:(UIColor * _Nonnull) color;
 - (void) setBottomLineColor:(UIColor * _Nonnull) color;
-- (void) setArrayData:(NSArray * _Nonnull) newArray;
+- (void) setArrayData:(AKArray * _Nonnull) newArray;
 
 @end
 

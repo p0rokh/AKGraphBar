@@ -39,6 +39,7 @@
 		AE9345DD1CA46B4700DFD341 /* AKDemoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKDemoController.m; path = Controllers/AKDemoController.m; sourceTree = "<group>"; };
 		AEA94B211CA8F73C000470E0 /* AKBulderGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AKBulderGraph.h; path = Model/AKBulderGraph.h; sourceTree = "<group>"; };
 		AEA94B221CA8F73C000470E0 /* AKBulderGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKBulderGraph.m; path = Model/AKBulderGraph.m; sourceTree = "<group>"; };
+		AEC110A71CAAA30800405258 /* Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Prefix.h; path = Model/Prefix.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +56,7 @@
 		AE3774FB1CA4EFDF00641861 /* GraphBar */ = {
 			isa = PBXGroup;
 			children = (
+				AEC110A71CAAA30800405258 /* Prefix.h */,
 				AE3774FC1CA50A9800641861 /* AKGraph.h */,
 				AE3774F81CA4EB0700641861 /* AKGraphBarSettings.h */,
 				AE3774F91CA4EB0700641861 /* AKGraphBarSettings.m */,

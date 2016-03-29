@@ -119,7 +119,7 @@ NSString* const AKGraphBarCreateImageNotification = @"AKGraphBarCreateImageNotif
         _settings.widthColums = ( maxMiniline - _settings.indent );
     }
     
-    NSArray* currentArray = _settings.arrayData;
+    AKArray * currentArray = _settings.arrayData;
 
     // Draw a line in the form of a dash indented
     for (int index = 1 ; index <= _settings.numberColums; index++) {
@@ -238,7 +238,7 @@ NSString* const AKGraphBarCreateImageNotification = @"AKGraphBarCreateImageNotif
     }
 }
 
-- (void) setArrayData:(NSArray *) newArray {
+- (void) setArrayData:(AKArray *) newArray {
     if (newArray) {
         
         /* v1.1.5 */
