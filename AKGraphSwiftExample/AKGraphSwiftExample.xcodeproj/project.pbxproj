@@ -12,6 +12,9 @@
 		AEC1108C1CAA7C8C00405258 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC1108A1CAA7C8C00405258 /* Main.storyboard */; };
 		AEC1108E1CAA7C8C00405258 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEC1108D1CAA7C8C00405258 /* Assets.xcassets */; };
 		AEC110911CAA7C8C00405258 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC1108F1CAA7C8C00405258 /* LaunchScreen.storyboard */; };
+		AEC110A01CAA7D9E00405258 /* AKBulderGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC1109A1CAA7D9E00405258 /* AKBulderGraph.m */; };
+		AEC110A11CAA7D9E00405258 /* AKGraphBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC1109D1CAA7D9E00405258 /* AKGraphBar.m */; };
+		AEC110A21CAA7D9E00405258 /* AKGraphBarSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC1109F1CAA7D9E00405258 /* AKGraphBarSettings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,13 @@
 		AEC1108D1CAA7C8C00405258 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEC110901CAA7C8C00405258 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEC110921CAA7C8C00405258 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEC110991CAA7D9E00405258 /* AKBulderGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKBulderGraph.h; sourceTree = "<group>"; };
+		AEC1109A1CAA7D9E00405258 /* AKBulderGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKBulderGraph.m; sourceTree = "<group>"; };
+		AEC1109B1CAA7D9E00405258 /* AKGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKGraph.h; sourceTree = "<group>"; };
+		AEC1109C1CAA7D9E00405258 /* AKGraphBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKGraphBar.h; sourceTree = "<group>"; };
+		AEC1109D1CAA7D9E00405258 /* AKGraphBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKGraphBar.m; sourceTree = "<group>"; };
+		AEC1109E1CAA7D9E00405258 /* AKGraphBarSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKGraphBarSettings.h; sourceTree = "<group>"; };
+		AEC1109F1CAA7D9E00405258 /* AKGraphBarSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKGraphBarSettings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +48,7 @@
 		AEC1107A1CAA7C8C00405258 = {
 			isa = PBXGroup;
 			children = (
+				AEC110981CAA7D9E00405258 /* Model */,
 				AEC110851CAA7C8C00405258 /* AKGraphSwiftExample */,
 				AEC110841CAA7C8C00405258 /* Products */,
 			);
@@ -62,6 +73,20 @@
 				AEC110921CAA7C8C00405258 /* Info.plist */,
 			);
 			path = AKGraphSwiftExample;
+			sourceTree = "<group>";
+		};
+		AEC110981CAA7D9E00405258 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AEC110991CAA7D9E00405258 /* AKBulderGraph.h */,
+				AEC1109A1CAA7D9E00405258 /* AKBulderGraph.m */,
+				AEC1109B1CAA7D9E00405258 /* AKGraph.h */,
+				AEC1109C1CAA7D9E00405258 /* AKGraphBar.h */,
+				AEC1109D1CAA7D9E00405258 /* AKGraphBar.m */,
+				AEC1109E1CAA7D9E00405258 /* AKGraphBarSettings.h */,
+				AEC1109F1CAA7D9E00405258 /* AKGraphBarSettings.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +160,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEC110A21CAA7D9E00405258 /* AKGraphBarSettings.m in Sources */,
 				AEC110891CAA7C8C00405258 /* ViewController.swift in Sources */,
+				AEC110A01CAA7D9E00405258 /* AKBulderGraph.m in Sources */,
+				AEC110A11CAA7D9E00405258 /* AKGraphBar.m in Sources */,
 				AEC110871CAA7C8C00405258 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +314,7 @@
 				AEC110971CAA7C8C00405258 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
