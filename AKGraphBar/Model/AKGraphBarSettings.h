@@ -19,27 +19,27 @@
 @property (copy, nonatomic, nonnull) UIColor* bottomLineColor;
 
 /* Default 10.0f  */
-@property (assign) CGFloat indentBottomLine;
-@property (assign) CGFloat indentTopLine;
+@property (assign, nonatomic) CGFloat indentBottomLine;
+@property (assign, nonatomic) CGFloat indentTopLine;
 
 /* Default 2.0f */
-@property (assign) CGFloat indent;
+@property (assign, nonatomic) CGFloat indent;
 
 /* Default 22 */
-@property (assign) NSInteger numberColums;
+@property (assign, nonatomic) NSInteger numberColums;
 
 /* Default W:48, H:2 */
-@property (assign) CGSize sizeMiniLine;
+@property (assign, nonatomic) CGSize sizeMiniLine;
 
 /* The width of the column, you can determine your size. The default column width is equal to the width of the underscore. */
-@property (assign) CGFloat widthColums;
+@property (assign, nonatomic) CGFloat widthColums;
 
 /* Data for NSNumber type columns */
 @property (copy, nonatomic, nonnull) NSArray* arrayData;
 
-@property (assign) BOOL miniLineHidden;
+@property (assign, nonatomic) BOOL miniLineHidden;
 
-@property (assign) CGFloat maxHeightColum;
+@property (assign, nonatomic) CGFloat maxHeightColum;
 
 /* Init methods */
 -(id _Nonnull)initDefaultWithArrayData:(NSArray* _Nonnull) arrayData;
