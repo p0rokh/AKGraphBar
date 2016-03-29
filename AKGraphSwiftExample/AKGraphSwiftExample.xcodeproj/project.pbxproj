@@ -32,6 +32,7 @@
 		AEC1109D1CAA7D9E00405258 /* AKGraphBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKGraphBar.m; sourceTree = "<group>"; };
 		AEC1109E1CAA7D9E00405258 /* AKGraphBarSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKGraphBarSettings.h; sourceTree = "<group>"; };
 		AEC1109F1CAA7D9E00405258 /* AKGraphBarSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKGraphBarSettings.m; sourceTree = "<group>"; };
+		AEC110A31CAA7E0D00405258 /* AKGraphSwiftExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AKGraphSwiftExample-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +72,7 @@
 				AEC1108D1CAA7C8C00405258 /* Assets.xcassets */,
 				AEC1108F1CAA7C8C00405258 /* LaunchScreen.storyboard */,
 				AEC110921CAA7C8C00405258 /* Info.plist */,
+				AEC110A31CAA7E0D00405258 /* AKGraphSwiftExample-Bridging-Header.h */,
 			);
 			path = AKGraphSwiftExample;
 			sourceTree = "<group>";
@@ -281,6 +283,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = anton.korolev.AKGraphSwiftExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AKGraphSwiftExample/AKGraphSwiftExample-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -292,6 +295,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = anton.korolev.AKGraphSwiftExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AKGraphSwiftExample/AKGraphSwiftExample-Bridging-Header.h";
 			};
 			name = Release;
 		};

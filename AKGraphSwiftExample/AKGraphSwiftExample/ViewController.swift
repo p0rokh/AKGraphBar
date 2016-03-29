@@ -10,16 +10,35 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
+    let graphBar = AKGraphBar()
+    let builder  = AKBulderGraph()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        graphBar.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
+    
+    @IBAction func randomBarAction(sender: UIButton) {
+        builder.changeSettingsBarRandom(graphBar)
+    }
+}
 
-
+extension ViewController: AKGraphBarDelegate {
+    
+    func sizeOfImageInGraphBar(graphBar: AKGraphBar) -> CGRect {
+        return imageView.bounds
+    }
+    
+    func graphBar(graphBar: AKGraphBar, drawImage image: UIImage?) {
+        imageView.image = image
+    }
 }
 
