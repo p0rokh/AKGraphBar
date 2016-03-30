@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+  
     AKArray * arrayGraph = [AKArray arrayWithObjects:@122, @321, @543, @233, @211, nil];
     AKGraphBarSettings* setting = [[AKGraphBarSettings alloc] initDefaultWithArrayData:arrayGraph];
     graphBar = [[AKGraphBar alloc] initWhithSetting:setting andDelegate:self];
@@ -43,6 +43,7 @@
     } andErrorBlock:^(NSString * _Nonnull message) {
         NSLog(@"--->ERROR block graph bar message: %@", message);
     }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,10 +62,37 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AKGraphBarCreateImageNotification object:nil];
 }
 
+#pragma mark - Action draw graph bar
+
+BOOL toRandomeSettings = NO;
+
 - (IBAction)addGraphAction:(id)sender {
     /* v1.1.5 */
-    [builder changeSettingsBarRandom:graphBar];
+
+    if (toRandomeSettings) {
+        [builder changeSettingsBarRandom:graphBar];
+
+    }else {
+        /* v1.1.7 */
+        toRandomeSettings = YES;
+        NSDictionary* parameters = [self createDictionary];
+        [builder changeSettingsGraphBar:graphBar withParameters:parameters andToDrawGraphBar:YES];
+    }
 }
+
+/* v1.1.7 */
+-(NSDictionary *) createDictionary {
+    AKArray * arrayGraph = [AKArray arrayWithObjects:@122, @321, @543, @233, @211, @122, @654, @34, @432, nil];
+    NSDictionary *currentDic = [[NSDictionary alloc]
+                                 initWithObjectsAndKeys:[UIColor grayColor], AKBuilderBackgroundColor,
+                                 [UIColor whiteColor], AKBuilderBottomLineColor,
+                                 [UIColor whiteColor], AKBuilderColumsLineColor,
+                                 arrayGraph, AKBuilderArrayData,
+                                 nil];
+    return currentDic;
+}
+
+#pragma mark - Notification graph bar method
 
 /* v1.1.3 */
 - (void) complitedDrawGraphBar:(NSNotification *) notification {

@@ -55,6 +55,7 @@ NSString* const AKGraphBarCreateImageNotification = @"AKGraphBarCreateImageNotif
     return self;
 }
 
+#pragma mark - draw method
 /* v1.0.3 */
 - (void) drawGraphBar {
     if ([_delegate respondsToSelector:@selector(sizeOfImageInGraphBar:)])  {
@@ -72,10 +73,14 @@ NSString* const AKGraphBarCreateImageNotification = @"AKGraphBarCreateImageNotif
 #endif
 
 - (void) startDrawInRect: (CGRect) rect {
-    if (CGRectEqualToRect(CGRectZero, rect) ) {
-        [self reportErrorMessage:@"Слишком малые размеры"];
-    } else {
+    if (CGRectEqualToRect(CGRectZero, rect) || ( _settings.arrayData.count <= 0 )) {
+       
+        /* v1.1.7 */
+        if ( CGRectEqualToRect(CGRectZero, rect) ) [self reportErrorMessage:@"Слишком малые размеры"];
+        if ( _settings.arrayData.count <= 0 )      [self reportErrorMessage:@"Нет данных"];
         
+    } else {
+    
         /* v1.1.4 */
         __weak typeof (self) weekSelf = self;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

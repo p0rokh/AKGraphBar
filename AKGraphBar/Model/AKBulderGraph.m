@@ -8,9 +8,41 @@
 
 #import "AKBulderGraph.h"
 
+NSString* const AKBuilderBackgroundColor = @"AKBuilderBackgroundColor";
+NSString* const AKBuilderBottomLineColor = @"AKBuilderBottomLineColor";
+NSString* const AKBuilderColumsLineColor = @"AKBuilderColumsLineColor";
+NSString* const AKBuilderArrayData       = @"AKBuilderArrayData";
+
+@interface AKBulderGraph()
+
+- (void) update: ( AKGraphBar * ) graphBar;
+
+- (UIColor *) randomeColor;
+- (NSUInteger) currentRandomFromMinimum:(NSUInteger) min toMaximum: (NSUInteger) max;
+
+@end
+
 @implementation AKBulderGraph
 
--(void)changeSettingsBarRandom:(AKGraphBar *)graphBar /* completedBlock:(void (^)(void))block */{
+-(void) changeSettingsGraphBar:(AKGraphBar *)graphBar
+                withParameters:(NSDictionary *) parameters
+             andToDrawGraphBar:(BOOL) toDraw {
+    
+    
+    UIColor* colorBackground = [parameters objectForKey:AKBuilderBackgroundColor];
+    UIColor* colorBottomLine = [parameters objectForKey:AKBuilderBottomLineColor];
+    UIColor* colorColumsLine = [parameters objectForKey:AKBuilderColumsLineColor];
+    AKArray* arrayData       = [parameters objectForKey:AKBuilderArrayData];
+
+    if (colorBackground) [graphBar setBackgroundColor:colorBackground];
+    if (colorBottomLine) [graphBar setBottomLineColor:colorBottomLine];
+    if (colorColumsLine) [graphBar setColumsLineColor:colorColumsLine];
+    if (arrayData)       [graphBar setArrayData:arrayData];
+    
+    if (toDraw) [graphBar drawGraphBar];
+}
+
+-(void)changeSettingsBarRandom:(AKGraphBar *)graphBar {
     __weak typeof (self) weekSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         typeof (self) strongSelf = weekSelf;
@@ -19,12 +51,12 @@
         }
          
         @synchronized (strongSelf) {
-            [strongSelf update:graphBar /*completedBlock:block */];
+            [strongSelf update:graphBar];
         }
     });
 }
 
-- (void) update: ( AKGraphBar * ) graphBar /* completedBlock:(void (^ _Nonnull)(void))block */ {
+- (void) update: ( AKGraphBar * ) graphBar {
     NSInteger type = [self currentRandomFromMinimum:0 toMaximum:3];
     NSUInteger count = [self currentRandomFromMinimum:3 toMaximum:14];
     NSMutableArray* randomArray = [NSMutableArray arrayWithCapacity:count];
